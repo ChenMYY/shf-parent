@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6e6460eb-2d33-4d26-9830-eab89ce1a7c8" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="E:/maven3.5.4" />
+        <option name="userSettingsFile" value="E:\maven3.5.4\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2LapZ6KSFcMF0oDSg9zoEQ0fims" />
+  <component name="ProjectViewState">
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.17578125" />
+    <property name="project.structure.side.proportion" value="0.17096776" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="ReadonlyStatusHandler">
+    <option name="SHOW_DIALOG" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Linux&amp;Redis\workSpace2\shf-parent\web\web-front\src\main\webapp" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Linux&amp;Redis\workSpace2\shf-parent\service\service-admin\src\main\java\com\atguigu\mapper" />
+      <recent name="E:\Linux&amp;Redis\workSpace2\shf-parent\service\service-admin\src\main\java\com\atguigu\service" />
+      <recent name="E:\Linux&amp;Redis\workSpace2\shf-parent\web\web-admin\src\main\webapp\WEB-INF" />
+      <recent name="E:\Linux&amp;Redis\workSpace2\shf-parent\web\web-admin" />
+      <recent name="E:\Linux&amp;Redis\workSpace2\shf-parent\web\web-admin\src\main\webapp\WEB-INF\templates" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Maven.web-admin">
+    <configuration name="service-admin" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="jetty:run" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/service/service-admin" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="service-house" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="jetty:run" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/service/service-house" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="service-user" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="jetty:run" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/service/service-user" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="web-admin" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="jetty:run" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/web/web-admin" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="web-front" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="jetty:run" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/web/web-front" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Maven.service-admin" />
+      <item itemvalue="Maven.service-house" />
+      <item itemvalue="Maven.web-admin" />
+      <item itemvalue="Maven.web-front" />
+      <item itemvalue="Maven.service-user" />
+    </list>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6e6460eb-2d33-4d26-9830-eab89ce1a7c8" name="Default Changelist" comment="" />
+      <created>1676119100168</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1676119100168</updated>
+      <workItem from="1676119103095" duration="3059000" />
+      <workItem from="1676178511516" duration="15475000" />
+      <workItem from="1676208009130" duration="3159000" />
+      <workItem from="1676248434904" duration="19973000" />
+      <workItem from="1676295884150" duration="310000" />
+      <workItem from="1676333935261" duration="1950000" />
+      <workItem from="1676355963917" duration="1211000" />
+      <workItem from="1676360020069" duration="709000" />
+      <workItem from="1676379822251" duration="207000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="0" y="189" key="#Project_Structure" timestamp="1676333974904">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="0" y="189" key="#Project_Structure/0.0.1536.864@0.0.1536.864" timestamp="1676333974904" />
+    <state x="196" y="101" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1676192498327">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="196" y="101" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864@0.0.1536.864" timestamp="1676192498327" />
+    <state x="598" y="148" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1676189847218">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="598" y="148" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.864@0.0.1536.864" timestamp="1676189847218" />
+    <state x="877" y="214" key="FileChooserDialogImpl" timestamp="1676380081489">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="877" y="214" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1676380081489" />
+    <state width="1284" height="226" key="GridCell.Tab.0.bottom" timestamp="1676294884064">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1284" height="226" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1676294884064" />
+    <state width="1284" height="226" key="GridCell.Tab.0.center" timestamp="1676294884063">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1284" height="226" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1676294884063" />
+    <state width="1284" height="226" key="GridCell.Tab.0.left" timestamp="1676294884063">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1284" height="226" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1676294884063" />
+    <state width="1284" height="226" key="GridCell.Tab.0.right" timestamp="1676294884064">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1284" height="226" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1676294884064" />
+    <state width="1284" height="226" key="GridCell.Tab.1.bottom" timestamp="1676294884064">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1284" height="226" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1676294884064" />
+    <state width="1284" height="226" key="GridCell.Tab.1.center" timestamp="1676294884064">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1284" height="226" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1676294884064" />
+    <state width="1284" height="226" key="GridCell.Tab.1.left" timestamp="1676294884064">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1284" height="226" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1676294884064" />
+    <state width="1284" height="226" key="GridCell.Tab.1.right" timestamp="1676294884064">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1284" height="226" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1676294884064" />
+    <state x="374" y="41" key="SettingsEditor" timestamp="1676380030604">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="374" y="41" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1676380030604" />
+    <state x="454" y="235" key="com.intellij.ide.util.TipDialog" timestamp="1676379877329">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="454" y="235" key="com.intellij.ide.util.TipDialog/0.0.1536.864@0.0.1536.864" timestamp="1676379877329" />
+    <state x="317" y="154" key="new project wizard" timestamp="1676191811752">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="317" y="154" key="new project wizard/0.0.1536.864@0.0.1536.864" timestamp="1676191811752" />
+    <state x="716" y="163" width="672" height="678" key="search.everywhere.popup" timestamp="1676183469023">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="716" y="163" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1676183469023" />
+    <state x="549" y="316" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1676121516705">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="549" y="316" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.1536.864@0.0.1536.864" timestamp="1676121516705" />
+  </component>
+</project>

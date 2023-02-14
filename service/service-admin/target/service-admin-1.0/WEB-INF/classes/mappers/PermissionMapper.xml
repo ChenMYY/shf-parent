@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.mapper.PermissionMapper">
+    <select id="findAll" resultType="Permission">
+        SELECT id,parent_id,code,type,name,create_time,update_time,is_deleted,url,sort
+        FROM acl_permission WHERE is_deleted=0
+    </select>
+
+    <select id="findPermissionListByAdminId" resultType="Permission">
+        SELECT DISTINCT
+        ap.id,ap.parent_id,ap.name,ap.url,ap.code,ap.type,ap.sort,ap.create_time,ap.update_time,ap.is_deleted
+        FROM
+        acl_admin_role aar LEFT JOIN acl_role_permission arp ON aar.role_id=arp.role_id
+        LEFT JOIN acl_permission ap ON arp.permission_id=ap.id
+        WHERE
+        aar.admin_id=#{adminId} AND aar.is_deleted=0 AND arp.is_deleted=0 AND ap.is_deleted=0
+    </select>
+</mapper>

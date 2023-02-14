@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.mapper.CommunityMapper">
+    <sql id="columns">
+        SELECT id,name,description,province_id,city_id,area_id,plate_id,address,longitude,latitude,build_years,property_price,property_company,developer,build_num,house_num,average_price,create_time,update_time,is_deleted
+    </sql>
+    <select id="findPage" resultType="Community">
+        <include refid="columns"></include>,
+        (SELECT name FROM hse_dict WHERE id=hc.area_id) areaName,
+        (SELECT name FROM hse_dict WHERE id=hc.plate_id) plateName
+        FROM hse_community hc
+        <where>
+            <if test="name != null and name != ''">
+                AND name like CONCAT("%",#{name},"%")
+            </if>
+            <if test="areaId != null and areaId != ''">
+                AND area_id=#{areaId}
+            </if>
+            <if test="plateId != null and plateId != ''">
+                AND plate_id=#{plateId}
+            </if>
+            AND is_deleted=0
+        </where>
+        ORDER BY
+        id DESC
+    </select>
+
+    <insert id="insert">
+        INSERT INTO hse_community (name,description,province_id,city_id,area_id,plate_id,address,longitude,latitude,build_years,property_price,property_company,developer,build_num,house_num,average_price)
+        VALUES (#{name},#{description},#{provinceId},#{cityId},#{areaId},#{plateId},#{address},#{longitude},#{latitude},#{buildYears},#{propertyPrice},#{propertyCompany},#{developer},#{buildNum},#{houseNum},#{averagePrice})
+    </insert>
+
+    <select id="getById" resultType="Community">
+        <include refid="columns"></include>,
+        (SELECT name FROM hse_dict WHERE id=hc.area_id) areaName,
+        (SELECT name FROM hse_dict WHERE id=hc.plate_id) plateName
+        FROM hse_community hc
+        WHERE is_deleted=0 AND id=#{id}
+    </select>
+
+    <update id="update">
+        UPDATE hse_community SET
+        <if test="name != null and name != ''">
+            name = #{name} ,
+        </if>
+        <if test="description != null and description != ''">
+            description = #{description} ,
+        </if>
+        <if test="provinceId != null and provinceId != ''">
+            province_id = #{provinceId} ,
+        </if>
+        <if test="cityId != null and cityId != ''">
+            city_id = #{cityId} ,
+        </if>
+        <if test="areaId != null and areaId != ''">
+            area_id = #{areaId} ,
+        </if>
+        <if test="plateId != null and plateId != ''">
+            plate_id = #{plateId} ,
+        </if>
+        <if test="address != null and address != ''">
+            address = #{address} ,
+        </if>
+        <if test="longitude != null and longitude != ''">
+            longitude = #{longitude} ,
+        </if>
+        <if test="latitude != null and latitude != ''">
+            latitude = #{latitude} ,
+        </if>
+        <if test="buildYears != null and buildYears != ''">
+            build_years = #{buildYears} ,
+        </if>
+        <if test="propertyPrice != null and propertyPrice != ''">
+            property_price = #{propertyPrice} ,
+        </if>
+        <if test="propertyCompany != null and propertyCompany != ''">
+            property_company = #{propertyCompany} ,
+        </if>
+        <if test="developer != null and developer != ''">
+            developer = #{developer} ,
+        </if>
+        <if test="buildNum != null and buildNum != ''">
+            build_num = #{buildNum} ,
+        </if>
+        <if test="houseNum != null and houseNum != ''">
+            house_num = #{houseNum} ,
+        </if>
+        <if test="averagePrice != null and averagePrice != ''">
+            average_price = #{averagePrice} ,
+        </if>
+        update_time =  now()
+        WHERE
+        id = #{id} AND is_deleted=0
+    </update>
+
+    <update id="delete">
+        UPDATE hse_community SET is_deleted=1 WHERE id=#{id} AND is_deleted=0
+    </update>
+
+    <select id="findAll" resultType="Community">
+        SELECT id,name FROM hse_community WHERE is_deleted=0
+    </select>
+</mapper>

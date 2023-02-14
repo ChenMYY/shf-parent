@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.mapper.HouseMapper">
+    <sql id="columns">
+        SELECT id,community_id,name,description,total_price,unit_price,build_area,inside_area,default_image_url,
+              house_type_id,floor_id,build_structure_id,direction_id,decoration_id,house_use_id,
+               elevator_ratio,listing_date,last_trade_date,status,create_time,update_time,is_deleted
+    </sql>
+    <select id="findCountByCommunityId" resultType="long">
+        SELECT COUNT(0) FROM hse_house WHERE community_id=#{communityId} AND is_deleted=0
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO hse_house (
+        id ,
+        community_id ,
+        name ,
+        description ,
+        total_price ,
+        unit_price ,
+        build_area ,
+        inside_area ,
+        house_type_id ,
+        floor_id ,
+        build_structure_id ,
+        direction_id ,
+        decoration_id ,
+        house_use_id ,
+        elevator_ratio ,
+        listing_date ,
+        last_trade_date ,
+        status
+        ) VALUES (
+        #{id} ,
+        #{communityId} ,
+        #{name} ,
+        #{description} ,
+        #{totalPrice} ,
+        #{unitPrice} ,
+        #{buildArea} ,
+        #{insideArea} ,
+        #{houseTypeId} ,
+        #{floorId} ,
+        #{buildStructureId} ,
+        #{directionId} ,
+        #{decorationId} ,
+        #{houseUseId} ,
+        #{elevatorRatio} ,
+        #{listingDate} ,
+        #{lastTradeDate} ,
+        #{status}
+        )
+    </insert>
+
+    <update id="update" >
+        UPDATE hse_house SET
+        <if test="defaultImageUrl != null">
+            default_image_url = #{defaultImageUrl},
+        </if>
+        <if test="communityId != null">
+            community_id = #{communityId} ,
+        </if>
+        <if test="name != null">
+            name = #{name} ,
+        </if>
+        <if test="description != null">
+            description = #{description} ,
+        </if>
+        <if test="totalPrice != null">
+            total_price = #{totalPrice} ,
+        </if>
+        <if test="unitPrice != null">
+            unit_price = #{unitPrice} ,
+        </if>
+        <if test="buildArea != null">
+            build_area = #{buildArea} ,
+        </if>
+        <if test="insideArea != null">
+            inside_area = #{insideArea} ,
+        </if>
+        <if test="houseTypeId != null">
+            house_type_id = #{houseTypeId} ,
+        </if>
+        <if test="floorId != null">
+            floor_id = #{floorId} ,
+        </if>
+        <if test="buildStructureId != null">
+            build_structure_id = #{buildStructureId} ,
+        </if>
+        <if test="directionId != null">
+            direction_id = #{directionId} ,
+        </if>
+        <if test="decorationId != null">
+            decoration_id = #{decorationId} ,
+        </if>
+        <if test="houseUseId != null">
+            house_use_id = #{houseUseId} ,
+        </if>
+        <if test="elevatorRatio != null">
+            elevator_ratio = #{elevatorRatio} ,
+        </if>
+        <if test="listingDate != null">
+            listing_date = #{listingDate} ,
+        </if>
+        <if test="lastTradeDate != null">
+            last_trade_date = #{lastTradeDate} ,
+        </if>
+        <if test="status != null">
+            status = #{status} ,
+        </if>
+        update_time =  now()
+        WHERE
+        id = #{id} AND is_deleted=0
+    </update>
+
+    <update id="delete">
+        UPDATE hse_house SET is_deleted=1 WHERE id=#{id} AND is_deleted=0
+    </update>
+
+    <select id="getById" resultType="House">
+        <include refid="columns"></include>,
+        (SELECT name FROM hse_dict WHERE id=hh.house_type_id) houseTypeName,
+        (SELECT name FROM hse_dict WHERE id=hh.floor_id) floorName,
+        (SELECT name FROM hse_dict WHERE id=hh.build_structure_id) buildStructureName,
+        (SELECT name FROM hse_dict WHERE id=hh.direction_id) directionName,
+        (SELECT name FROM hse_dict WHERE id=hh.decoration_id) decorationName,
+        (SELECT name FROM hse_dict WHERE id=hh.house_use_id) houseUseName
+       FROM hse_house hh
+       WHERE id=#{id} AND is_deleted=0
+    </select>
+
+    <select id="findPage" resultType="House">
+        <include refid="columns"></include>
+        FROM hse_house
+        <where>
+            <if test="name != null and name != ''">
+                AND name LIKE CONCAT("%",#{name},"%")
+            </if>
+            <if test="communityId != null and communityId != ''">
+                AND community_id=#{communityId}
+            </if>
+            <if test="houseTypeId != null and houseTypeId != ''">
+                AND house_type_id=#{houseTypeId}
+            </if>
+            <if test="floorId != null and floorId != ''">
+                AND floor_id=#{floorId}
+            </if>
+            <if test="buildStructureId != null and buildStructureId != ''">
+                AND build_structure_id=#{buildStructureId}
+            </if>
+            <if test="directionId != null and directionId != ''">
+                AND direction_id=#{directionId}
+            </if>
+            <if test="decorationId != null and decorationId != ''">
+                AND decoration_id=#{decorationId}
+            </if>
+            <if test="houseUseId != null and houseUseId != ''">
+                AND houseUse_id=#{houseUseId}
+            </if>
+            AND is_deleted=0
+        </where>
+        ORDER BY id DESC
+    </select>
+
+    <select id="findListPage" resultType="HouseVo">
+        SELECT
+        hh.id,hh.name,hh.build_area,hh.total_price,hh.unit_price,hh.house_type_id,hh.floor_id,hh.direction_id,hh.default_image_url,hh.listing_date createTime,
+        hc.name communityName,
+        (SELECT name FROM hse_dict WHERE id=hh.house_type_id AND is_deleted=0) houseTypeName,
+        (SELECT name FROM hse_dict WHERE id=hh.floor_id AND is_deleted=0) floorName,
+        (SELECT name FROM hse_dict WHERE id=hh.direction_id AND is_deleted=0) directionName,
+        (SELECT name FROM hse_dict WHERE id=hh.decoration_id AND is_deleted=0) decorationName
+        FROM
+        hse_community hc INNER JOIN hse_house hh
+        ON hc.id=hh.community_id
+        <where>
+            <if test="buildStructureId != null">
+                AND hh.build_structure_id=#{buildStructureId}
+            </if>
+            <if test="decorationId != null">
+                AND hh.decoration_id=#{decorationId}
+            </if>
+            <if test="directionId != null">
+                AND hh.direction_id=#{directionId}
+            </if>
+            <if test="floorId != null">
+                AND hh.floor_id=#{floorId}
+            </if>
+            <if test="houseTypeId != null">
+                AND hh.house_type_id=#{houseTypeId}
+            </if>
+            <if test="houseUseId != null">
+                AND hh.house_use_id=#{houseUseId}
+            </if>
+            <if test="areaId != null">
+                AND hc.area_id=#{areaId}
+            </if>
+            <if test="plateId != null">
+                AND hc.plate_id=#{plateId}
+            </if>
+            AND hh.is_deleted=0 AND hc.is_deleted=0 AND hh.status=1
+        </where>
+        ORDER BY
+        <if test="defaultSort == 1">
+            hh.id ASC
+        </if>
+        <if test="priceSort == 1">
+            hh.total_price ASC
+        </if>
+        <if test="timeSort == 1">
+            hh.listing_date ASC
+        </if>
+    </select>
+</mapper>

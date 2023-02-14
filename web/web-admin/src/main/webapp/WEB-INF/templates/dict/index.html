@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="common/head :: head"></head>
+
+<link rel="stylesheet" th:href="@{/static/js/plugins/zTree_v3/zTreeStyle.css}" type="text/css">
+<script type="text/javascript" th:src="@{/static/js/plugins/zTree_v3/jquery.ztree.core.js}"></script>
+<body class="gray-bg">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="ibox float-e-margins">
+        <div class="ibox-content" style="width: 98%;">
+
+            <div class="zTreeDemoBackground left">
+                <ul id="treeDemo" class="ztree"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script th:inline="javascript">
+    // 文档地址:http://www.treejs.cn/v3/demo.php#_108
+    var setting = {
+        //异步
+        async: {
+            enable: true,
+            url: "/dict/findZnodes",
+            type: "get",
+            autoParam: ["id"],
+            dataFilter: filter
+        }
+    };
+
+    function filter(treeId, parentNode, childNodes) {
+        //异步请求的响应数据response, response.data就是真正的响应体内容(json,jsonArray)其实就是当前节点的所有子节点
+        childNodes = childNodes.data
+        if (!childNodes) return null;
+        for (var i = 0, l = childNodes.length; i < l; i++) {
+            childNodes[i].name = childNodes[i].name.replace(/\.n/g, '.');
+        }
+        return childNodes;
+    }
+
+    //初始化树形结构
+    $.fn.zTree.init($("#treeDemo"), setting);
+</script>
+</body>
+</html>

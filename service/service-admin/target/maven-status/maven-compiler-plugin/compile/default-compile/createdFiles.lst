@@ -1,0 +1,9 @@
+com\atguigu\mapper\PermissionMapper.class
+com\atguigu\mapper\AdminMapper.class
+com\atguigu\mapper\RolePermissionMapper.class
+com\atguigu\helper\PermissionHelper.class
+com\atguigu\service\impl\PermissionServiceImpl.class
+com\atguigu\service\impl\RoleServiceImpl.class
+com\atguigu\service\impl\AdminServiceImpl.class
+com\atguigu\mapper\AdminRoleMapper.class
+com\atguigu\mapper\RoleMapper.class

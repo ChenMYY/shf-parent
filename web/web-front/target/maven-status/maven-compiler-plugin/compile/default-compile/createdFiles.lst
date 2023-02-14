@@ -1,0 +1,5 @@
+com\atguigu\controller\UserInfoController.class
+com\atguigu\controller\UserFollowController.class
+com\atguigu\controller\DictController.class
+com\atguigu\controller\HouseController.class
+com\atguigu\interceptor\LoginInterceptor.class

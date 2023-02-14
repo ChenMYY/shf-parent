@@ -1,0 +1,4 @@
+com\atguigu\mapper\UserFollowMapper.class
+com\atguigu\mapper\UserInfoMapper.class
+com\atguigu\service\impl\UserInfoServiceImpl.class
+com\atguigu\service\impl\UserFollowServiceImpl.class

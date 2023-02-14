@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.mapper.AdminMapper">
+    <sql id="columns">
+        SELECT id,username,password,name,phone,head_url,description,create_time,update_time,is_deleted
+    </sql>
+    <select id="findAll" resultType="Admin">
+        <include refid="columns"></include>
+        FROM acl_admin
+        WHERE is_deleted=0
+    </select>
+    <select id="getByUsername" resultType="Admin">
+        <include refid="columns"></include>
+        FROM acl_admin
+        WHERE username=#{username} AND is_deleted=0
+    </select>
+    <insert id="insert">
+        INSERT INTO acl_admin (username,password,name,phone,head_url,description)
+        VALUES (#{username},#{password},#{name},#{phone},#{headUrl},#{description})
+    </insert>
+
+    <select id="getById" resultType="Admin">
+        <include refid="columns"></include>
+        FROM acl_admin
+        WHERE is_deleted=0 AND id=#{adminId}
+    </select>
+
+    <update id="update">
+        UPDATE acl_admin
+        <set>
+            <if test="username != null and username != ''">
+                username=#{username},
+            </if>
+            <if test="password != null and password != ''">
+                password=#{password},
+            </if>
+            <if test="name != null and name != ''">
+                name=#{name},
+            </if>
+            <if test="phone != null and phone != ''">
+                phone=#{phone},
+            </if>
+            <if test="headUrl != null and headUrl != ''">
+                head_url=#{headUrl},
+            </if>
+            <if test="description != null and description != ''">
+                description=#{description},
+            </if>
+            update_time=NOW()
+        </set>
+
+        WHERE id=#{id} AND is_deleted=0
+    </update>
+
+    <update id="delete">
+        UPDATE acl_admin SET is_deleted=1 WHERE id=#{adminId} AND is_deleted=0
+    </update>
+
+    <select id="findPage" resultType="Admin">
+        <include refid="columns"></include>
+        FROM acl_admin
+        <where>
+            <if test="username != null and username != ''">
+                AND username like CONCAT("%",#{username},"%")
+            </if>
+            <if test="name != null and name != ''">
+                AND name like CONCAT("%",#{name},"%")
+            </if>
+            <if test="phone != null and phone != ''">
+                AND phone like CONCAT(#{phone},"%")
+            </if>
+            <if test="createTimeBegin != null and createTimeBegin != ''">
+                AND create_time >= #{createTimeBegin}
+            </if>
+            <if test="createTimeEnd != null and createTimeEnd != ''">
+                AND create_time &lt;= #{createTimeEnd}
+            </if>
+            AND is_deleted=0
+        </where>
+    </select>
+</mapper>

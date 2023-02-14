@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.mapper.RoleMapper">
+    <sql id="columns">
+        SELECT id,role_name,role_code,description,create_time,update_time,is_deleted
+    </sql>
+    <select id="findAll" resultType="Role">
+        <include refid="columns"></include>
+        FROM acl_role
+        WHERE is_deleted=0
+    </select>
+
+    <insert id="insert">
+        INSERT INTO acl_role (role_name,role_code,description) VALUES (#{roleName},#{roleCode},#{description})
+    </insert>
+
+    <select id="getById" resultType="Role">
+        <include refid="columns"></include>
+        FROM acl_role
+        WHERE is_deleted=0 AND id=#{roleId}
+    </select>
+
+    <update id="update">
+        UPDATE acl_role
+        <set>
+            <if test="roleName != null and roleName != ''">
+                role_name=#{roleName},
+            </if>
+            <if test="roleCode != null and roleCode != ''">
+                role_code=#{roleCode},
+            </if>
+            <if test="description != null and description != ''">
+                description=#{description},
+            </if>
+            update_time=NOW()
+        </set>
+
+        WHERE id=#{id} AND is_deleted=0
+    </update>
+    
+    <update id="delete">
+        UPDATE acl_role SET is_deleted=1 WHERE id=#{roleId} AND is_deleted=0
+    </update>
+    
+    <select id="findPage" resultType="Role">
+        <include refid="columns"></include>
+        FROM acl_role
+        <where>
+            <if test="roleName != null and roleName != ''">
+                role_name like CONCAT("%",#{roleName},"%")
+            </if>
+            AND is_deleted=0
+        </where>
+    </select>
+</mapper>
